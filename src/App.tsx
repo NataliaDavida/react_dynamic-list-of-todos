@@ -40,13 +40,13 @@ export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null);
 
-  const [sortFild, setSortField] = useState('all');
+  const [sortField, setSortField] = useState('all');
   const [query, setQuery] = useState('');
 
   const [loadingUser, setLoadingUser] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
-  const visibleTodos = getVisibleTodos(todos, sortFild, query);
+  const visibleTodos = getVisibleTodos(todos, sortField, query);
 
   useEffect(() => {
     setLoading(true);
@@ -79,9 +79,8 @@ export const App: React.FC = () => {
               <TodoFilter
                 searchValue={query}
                 onSearchChange={setQuery}
-                filterStatus={sortFild}
+                filterStatus={sortField}
                 onFilterChange={setSortField}
-                query={query}
               />
             </div>
 
